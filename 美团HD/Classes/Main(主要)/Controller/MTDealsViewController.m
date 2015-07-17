@@ -61,7 +61,7 @@ static NSString * const reuseIdentifier = @"deal";
 {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     // cell的大小
-    layout.itemSize = CGSizeMake(305, 305);
+    layout.itemSize = CGSizeMake(300, 300);
     return [self initWithCollectionViewLayout:layout];
 }
 
@@ -71,13 +71,12 @@ static NSString * const reuseIdentifier = @"deal";
     // 设置背景色
     self.collectionView.backgroundColor = MTGlobalBg;
     
-    // Register cell classes
+    // Register cell classesbu
     [self.collectionView registerNib:[UINib nibWithNibName:@"MTDealCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
     self.collectionView.alwaysBounceVertical = YES;
-    
     // 添加上拉刷新
-    [self.collectionView addFooterWithTarget:self action:@selector(loadMoreDeals)];
     [self.collectionView addHeaderWithTarget:self action:@selector(loadNewDeals)];
+    [self.collectionView addFooterWithTarget:self action:@selector(loadMoreDeals)];
 }
 
 /**
@@ -173,13 +172,13 @@ static NSString * const reuseIdentifier = @"deal";
     // 控制"没有数据"的提醒
     self.noDataView.hidden = (self.deals.count != 0);
     return self.deals.count;
+    
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     MTDealCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    
     cell.deal = self.deals[indexPath.item];
-    
+   
     return cell;
 }
 

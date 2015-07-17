@@ -14,4 +14,13 @@
 {
     return @{@"desc" : @"description"};
 }
+
+- (BOOL)isEqual:(MTDeal *)other
+{
+    return [self.deal_id isEqual:other.deal_id];
+}
+
+
+
+MJCodingImplementation
 @end

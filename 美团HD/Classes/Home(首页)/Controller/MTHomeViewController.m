@@ -29,6 +29,7 @@
 #import "AwesomeMenu.h"
 #import "MTCollectViewController.h"
 #import "MTRecentViewController.h"
+#import "MTmapViewController.h"
 
 @interface MTHomeViewController () <AwesomeMenuDelegate>
 /** 分类item */
@@ -46,6 +47,7 @@
 @property (nonatomic, copy) NSString *selectedRegionName;
 /** 当前选中的排序 */
 @property (nonatomic, strong) MTSort *selectedSort;
+@property(nonatomic,copy)NSString *myblock;
 
 /** 分类popover */
 @property (nonatomic, strong) UIPopoverController *categoryPopover;
@@ -68,6 +70,8 @@
     
     // 创建awesomemenu
     [self setupAwesomeMenu];
+
+    
 }
 
 - (void)dealloc
@@ -108,6 +112,7 @@
 - (void)setupNotifications
 {
     // 监听城市改变
+    
     [MTNotificationCenter addObserver:self selector:@selector(cityDidChange:) name:MTCityDidChangeNotification object:nil];
     // 监听排序改变
     [MTNotificationCenter addObserver:self selector:@selector(sortDidChange:) name:MTSortDidChangeNotification object:nil];
@@ -138,6 +143,9 @@
 
 - (void)awesomeMenu:(AwesomeMenu *)menu didSelectIndex:(NSInteger)idx
 {
+    // 半透明显示
+    menu.alpha = 0.5;
+    
     // 替换菜单的图片
     menu.contentImage = [UIImage imageNamed:@"icon_pathMenu_mainMine_normal"];
     
@@ -163,8 +171,8 @@
 - (void)cityDidChange:(NSNotification *)notification
 {
     self.selectedCityName = notification.userInfo[MTSelectCityName];
-    
     // 1.更换顶部区域item的文字
+    
     MTHomeTopItem *topItem = (MTHomeTopItem *)self.regionItem.customView;
     [topItem setTitle:[NSString stringWithFormat:@"%@ - 全部", self.selectedCityName]];
     [topItem setSubtitle:nil];
@@ -228,7 +236,8 @@
 
 - (void)sortDidChange:(NSNotification *)notification
 {
-    self.selectedSort = notification.userInfo[MTSelectSort];
+  
+    self.selectedSort=notification.userInfo[MTSelectSort];
     
     // 1.更换顶部排序item的文字
     MTHomeTopItem *topItem = (MTHomeTopItem *)self.sortItem.customView;
@@ -288,11 +297,12 @@
     self.sortItem = sortItem;
     
     self.navigationItem.leftBarButtonItems = @[logoItem, categoryItem, regionItem, sortItem];
+    
 }
 
 - (void)setupRightNav
 {
-    UIBarButtonItem *mapItem = [UIBarButtonItem itemWithTarget:nil action:nil image:@"icon_map" highImage:@"icon_map_highlighted"];
+    UIBarButtonItem *mapItem = [UIBarButtonItem itemWithTarget:self action:@selector(map) image:@"icon_map" highImage:@"icon_map_highlighted"];
     mapItem.customView.width = 60;
     
     UIBarButtonItem *searchItem = [UIBarButtonItem itemWithTarget:self action:@selector(search) image:@"icon_search" highImage:@"icon_search_highlighted"];
@@ -301,6 +311,14 @@
 }
 
 #pragma mark - 顶部item点击方法
+-(void)map{
+
+    MTNavigationController *nav=[[MTNavigationController alloc]initWithRootViewController:[[MTmapViewController alloc] init]];
+    [self presentViewController:nav animated:YES completion:nil];
+
+
+
+}
 - (void)search
 {
     if (self.selectedCityName) {

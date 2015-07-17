@@ -8,9 +8,16 @@
 
 #import <UIKit/UIKit.h>
 @class MTDeal, MTDealCell;
+@protocol mtdealcell <NSObject>
+
+@optional
+-(void)dealcellcheckingDidchange:(MTDealCell *)cell;
+
+@end
 
 
 @interface MTDealCell : UICollectionViewCell
 @property (nonatomic, strong) MTDeal *deal;
+@property(nonatomic,strong)id<mtdealcell>delegate;
 
 @end

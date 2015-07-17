@@ -24,3 +24,10 @@ extern NSString *const MTSelectSubcategoryName;
 extern NSString *const MTRegionDidChangeNotification;
 extern NSString *const MTSelectRegion;
 extern NSString *const MTSelectSubregionName;
+
+extern NSString *const MTCollectStateDidChangeNotification;
+extern NSString *const MTIsCollectKey;
+extern NSString *const MTCollectDealKey;
+
+extern NSString *const modefilydeal;
+extern NSString *const UPdatetheRecentDeal;

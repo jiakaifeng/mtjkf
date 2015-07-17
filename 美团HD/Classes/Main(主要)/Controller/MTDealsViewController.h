@@ -13,4 +13,5 @@
  *  设置请求参数:交给子类去实现
  */
 - (void)setupParams:(NSMutableDictionary *)params;
+
 @end

@@ -27,16 +27,7 @@
     
     searchText = searchText.lowercaseString;
     
-//    self.resultCities = [NSMutableArray array];
-//    // 根据关键字搜索想要的城市数据
-//    for (MTCity *city in self.cities) {
-//        // 城市的name中包含了searchText
-//        // 城市的pinYin中包含了searchText beijing
-//        // 城市的pinYinHead中包含了searchText
-//        if ([city.name containsString:searchText] || [city.pinYin containsString:searchText] || [city.pinYinHead containsString:searchText]) {
-//            [self.resultCities addObject:city];
-//        }
-//    }
+
     // 谓词\过滤器:能利用一定的条件从一个数组中过滤出想要的数据
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name contains %@ or pinYin contains %@ or pinYinHead contains %@", searchText, searchText, searchText];
     self.resultCities = [[MTMetaTool cities] filteredArrayUsingPredicate:predicate];

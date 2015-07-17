@@ -13,3 +13,13 @@ NSString *const MTSelectSubcategoryName = @"MTSelectSubcategoryName";
 NSString *const MTRegionDidChangeNotification = @"MTRegionDidChangeNotification";
 NSString *const MTSelectRegion = @"MTSelectRegion";
 NSString *const MTSelectSubregionName = @"MTSelectSubregionName";
+
+NSString *const MTCollectStateDidChangeNotification = @"MTCollectStateDidChangeNotification";
+NSString *const MTIsCollectKey = @"MTIsCollectKey";
+NSString *const MTCollectDealKey = @"MTCollectDealKey";
+ NSString *const modefilydeal=@"modefilydeal";
+
+NSString *const UPdatetheRecentDeal = @"UPdatetheRecentDeal";
+
+
+

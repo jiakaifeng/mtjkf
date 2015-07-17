@@ -65,6 +65,7 @@
         button.tag = i;
         [self.view addSubview:button];
         
+        
         height = CGRectGetMaxY(button.frame);
     }
     

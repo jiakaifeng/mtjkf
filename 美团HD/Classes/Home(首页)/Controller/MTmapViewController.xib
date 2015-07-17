@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MTmapViewController">
+            <connections>
+                <outlet property="mapview" destination="kWg-DQ-CXN" id="68m-ku-Vhn"/>
+                <outlet property="view" destination="Tjo-7Y-ncE" id="seY-WH-RD0"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Tjo-7Y-ncE">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M4P-64-7Ex">
+                    <rect key="frame" x="24" y="562" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="Button">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kWg-DQ-CXN">
+                    <rect key="frame" x="8" y="0.0" width="592" height="600"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="CUL-jG-qi2"/>
+                    </connections>
+                </mapView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="kWg-DQ-CXN" firstAttribute="top" secondItem="Tjo-7Y-ncE" secondAttribute="top" id="Mg9-sX-93w"/>
+                <constraint firstAttribute="trailing" secondItem="kWg-DQ-CXN" secondAttribute="trailing" id="aUe-DU-nwu"/>
+                <constraint firstItem="kWg-DQ-CXN" firstAttribute="leading" secondItem="Tjo-7Y-ncE" secondAttribute="leading" constant="8" id="iBL-rj-cvC"/>
+                <constraint firstAttribute="bottom" secondItem="kWg-DQ-CXN" secondAttribute="bottom" id="jJv-8L-Obp"/>
+            </constraints>
+            <point key="canvasLocation" x="380" y="305"/>
+        </view>
+    </objects>
+</document>
